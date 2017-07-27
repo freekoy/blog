@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>博客后台管理</title>
+  <script src="__PUBLIC__/Home/js/jquery.js"></script>
+  <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>博客后台管理界面</h1>
+    </div>
+    <div class="col-md-12">
+      <form action="" method="post">
+        <div class="form-group">
+          <label for="username"></label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+        </div>
+        <div class="form-group">
+          <label for="password"></label>
+          <input type="text" class="form-control" id="password" name="password" placeholder="密码">
+        </div>
+        <div class="form-group">
+          <label for="verify"></label>
+          <input type="text" class="form-control" id="verify" name="verify" placeholder="请输入验证码">
+          <img src="{:U('Admin/login/vcode')}" />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-info">提交</button>
+        </div>
+      </form>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div style="text-align:center">
+       版权所有&copy;2017
+      </div>
+    </nav>
+</body>
+</html>
