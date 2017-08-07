@@ -20,9 +20,11 @@
   <div class="container">
     <nav class="navbar bg-info">
       <ul class="nav navbar-nav">
-        <li><a href="">首页</a></li>
-        <li><a href="">留言</a></li>
-        <li><a href="">关于</a></li>
+        <ul class="nav navbar-nav">
+          <li><a href="{:U('Home/index/index')}">首页</a></li>
+          <li><a href="{:U('Home/comment/comment')}">留言</a></li>
+          <li><a href="{:U('Home/about/about')}">关于</a></li>
+        </ul>
       </ul>
     </nav>
     <div class="row">
