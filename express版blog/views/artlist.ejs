@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/base.css'>
+  <link rel="stylesheet" href="/stylesheets/weblog.css">
+</head>
+<body>
+  <header class="backend">
+    <div class="name">
+      <%= title %>
+    </div>
+    <div class="logout">
+      <a href="">logout</a>
+      <p>上次访问时间：</p>
+    </div>
+  </header>
+  <aside class="aside">
+    <nav>
+      <a href="/catlist">catlist</a>
+      <a href="/catadd">catadd</a>
+      <a href="/artlist">artlist</a>
+      <a href="/artadd">artadd</a>
+    </nav>
+  </aside>
+  <div class="edit">
+    <table class="table">
+      <tr>
+        <th width="40%">标题</th>
+        <th width="20%">阅读</th>
+        <th width="20%">评论</th>
+        <th width="20%">操作</th>
+      </tr>
+      <% for(let i = 0;i < arts.length;i++) { %>
+      <tr>
+        <td><%= arts[i]['art_title'] %></td>
+        <td><%= arts[i]['read_number'] %></td>
+        <td><%= arts[i]['comment_number'] %></td>
+        <td>
+          <a href="/artedit/<%= arts[i]['art_title'] %>">编辑</a>|
+          <a href="/artdel/<%= arts[i]['art_title'] %>/<%= arts[i]['cat_name'] %>">删除</a>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
+</body>
+<script src='/javascripts/fixsimple.js'></script>
+</html>

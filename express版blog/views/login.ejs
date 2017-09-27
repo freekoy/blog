@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/base.css'>
+  <link rel="stylesheet" href="/stylesheets/weblog.css">
+</head>
+<body>
+  <div class="login">
+    <h4>博客后台管理</h4>
+    <form class="" action="" method="post">
+      <p>账号: <input type="text" name='user' placeholder="请输入账号"></p>
+      <p>密码: <input type="password" name='password' placeholder="请输入密码"></p>
+      <p>验证: <input type="text" name='code' placeholder="请输入验证码" onfocus="getCode()"><canvas id="canvas"></canvas></p>
+      <p><input id="submit" type="submit" value="提交"></p>
+    </form>
+  </div>
+</body>
+<script src='/javascripts/fixsimple.js'></script>
+<script>
+  function getCode() {
+    //arr code
+    let code;
+    //ajax
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState == 4) {
+        if(xhr.status == 200) {
+          code = eval(xhr.responseText);
+          console.log(code);
+          graw(code);
+        }else {
+          console.log(xhr.status);
+        }
+      }
+    }
+    xhr.open('GET','/code');
+    xhr.send(null);
+
+  }
+
+  function graw(code) {
+    //canvas
+    var canvas=document.getElementById('canvas');
+    var ctx=canvas.getContext('2d');
+    var width=canvas.width;
+    var height=canvas.height;
+    ctx.fillStyle = randomColor(180,240);
+    ctx.fillRect(0,0,width,height);
+    ctx.font = 0.5 +'rem SimHei';
+    function randomColor(min,max){
+       var r = randomNum(min,max);
+       var g = randomNum(min,max);
+       var b = randomNum(min,max);
+       return "rgb("+r+","+g+","+b+")";
+     }
+     function randomNum(min,max){
+        return Math.floor( Math.random()*(max-min)+min);
+      }
+    for(var i=0; i<8; i++){
+         ctx.strokeStyle = randomColor(40,180);
+         ctx.beginPath();
+         ctx.moveTo( randomNum(0,width), randomNum(0,height) );
+         ctx.lineTo( randomNum(0,width), randomNum(0,height) );
+         ctx.stroke();
+      }
+    ctx.fillStyle = 'gray';
+    ctx.fillText(code[0] + code[2] + code[1] +'=?',20,80);
+  }
+</script>
+</html>

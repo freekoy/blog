@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/base.css'>
+    <link rel="stylesheet" href="/stylesheets/weblog.css">
+  </head>
+  <body>
+    <header class="header" id="top">
+      <img src="/images/my.jpg" alt="">
+      <p>追求卓越,不止于代码</p>
+    </header>
+    <nav class="nav">
+      <ul>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);"  onclick="dis()">分类</a>
+          <ul class="ul">
+            <% for(let i = 0;i < cats.length;i++) { %>
+            <li><a href="/catname/<%= cats[i]['cat_name'] %>"><%= cats[i]['cat_name'] %></a></li>
+            <% } %>
+          </ul>
+        </li>
+        <li><a href="/aboutme">关于我</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <% let pubtime,newDate = new Date(); %>
+      <% for(let i = 0;i < 4;i++) { %>
+        <% pubtime = arts[i]['pubtime'];
+          newDate.setTime(pubtime);
+         %>
+        <section class="section">
+          <p class="title"><a href="/article/<%= arts[i]['art_title'] %>"><%= arts[i]['art_title'] %></a></p>
+          <p class="subtitle"><span>发布时间: <%= newDate.toLocaleDateString() %></span> <span>分类: <%= arts[i]['cat_name'] %></span></p>
+          <pre><%= arts[i]['content'] %></pre>
+        </section>
+        <% } %>
+    </div>
+    <div class="more">
+      <button onclick="more();">阅读更多...</button>
+    </div>
+    <footer class="footer">
+      <p>&copy 2017 freekoy</p>
+    </footer>
+  </body>
+  <script src="/javascripts/fixsimple.js"></script>
+  <script>
+
+  let start = 4;
+  let j = start+4;
+  function more() {
+    function success(data) {
+      var data = eval('(' + data + ')');
+      var content = document.getElementsByClassName('content')[0];
+      let newDate = new Date();
+      // console.log(start,j);
+      if(j <= data.arts.length) {
+        for(let i = start;i < j;i++) {
+          newDate.setTime(data.arts[i]['pubtime']);
+          content.innerHTML += `
+          <section class="section">
+            <p class="title"><a href="/article/${data.arts[i]['art_title']}">${data.arts[i]['art_title']}</a></p>
+            <p class="subtitle"><span>发布时间: ${newDate.toLocaleDateString()}</span> <span>分类: ${data.arts[i]['cat_name']}</span></p>
+            <pre>${data.arts[i]['content']}</pre>
+          </section>
+          `;
+        }
+      }
+      if(start+4 >= data.arts.length) {
+        start = start;
+      }else {
+        start += 4;
+      }
+      if(j == data.arts.length) {
+        j += 4;
+        start +=4;
+      }else if(j+4 > data.arts.length) {
+        j = data.arts.length;
+      }else {
+        j += 4;
+        start += 4;
+      }
+      // console.log(start,j);
+    }
+    function fail(code) {
+      console.log(code);
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState === 4) {
+        if(xhr.status === 200) {
+          return success(xhr.responseText);
+        }else {
+          return fail(xhr.status);
+        }
+      }
+    }
+    xhr.open('GET','/data');
+    xhr.send();
+  }
+  </script>
+  <script>
+  let ul = document.getElementsByClassName('ul')[0];
+  ul.style.display = 'none';
+  let state = 1;
+  function dis() {
+    if(state > 0) {
+      ul.style.display = 'block';
+    }else if(state < 0) {
+      ul.style.display = 'none';
+    }
+    state = -state;
+  }
+  </script>
+</html>

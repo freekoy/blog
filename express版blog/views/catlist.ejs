@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/base.css'>
+  <link rel="stylesheet" href="/stylesheets/weblog.css">
+</head>
+<body>
+  <header class="backend">
+    <div class="name">
+      <%= title %>
+    </div>
+    <div class="logout">
+      <a href="">logout</a>
+      <p>上次访问时间：</p>
+    </div>
+  </header>
+  <aside class="aside">
+    <nav>
+      <a href="/catlist">catlist</a>
+      <a href="/catadd">catadd</a>
+      <a href="/artlist">artlist</a>
+      <a href="/artadd">artadd</a>
+    </nav>
+  </aside>
+  <div class="edit">
+    <table class="table">
+      <tr>
+        <th width="40%">类别</th>
+        <th width="20%">文章数</th>
+        <th width="40%">操作</th>
+      </tr>
+      <% for(let i = 0;i < cats.length;i++) { %>
+      <tr>
+        <td><%= cats[i]['cat_name'] %></td>
+        <td><%= cats[i]['art_number'] %></td>
+        <td>
+          <a href="/catedit/<%= cats[i]['cat_name'] %>">编辑</a>|
+          <a href="/catdel/<%= cats[i]['cat_name'] %>">删除</a>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
+</body>
+<script src='/javascripts/fixsimple.js'></script>
+</html>

@@ -1,0 +1,366 @@
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #F3F3F3;
+}
+
+.clear::after{
+  clear: both;
+}
+
+.backtop {
+  width: 1rem;
+  height: 1.1rem;
+  top: 9.8rem;
+  left: 9rem;
+  text-align: center;
+  margin-right: 0.2rem;
+  position: fixed;
+}
+
+.backtop a{
+  width: 1rem;
+  height: 1.1rem;
+  border-radius: 100%;
+  background: #33CCFF;
+  color: white;
+  display: block;
+  line-height: 1.1rem;
+  font-size: 0.8rem;
+}
+
+.header {
+  width: 10rem;
+  text-align: center;
+  font-size: 0.2rem;
+  color: white;
+  background: url(/images/ff.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header img{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+
+.nav {
+  width: 10rem;
+  height: 0.45rem;
+  background: white;
+  border: 0.01rem solid gray;
+  float: left;
+}
+
+.nav a{
+  width: 3.33rem;
+  height: 0.4rem;
+  font-size: 0.2rem;
+  text-align: center;
+  line-height: 0.45rem;
+  display: block;
+  color: gray;
+  box-sizing: border-box;
+  float: left;
+}
+
+.nav a:hover{
+  color: #FF9900;
+}
+
+.ul {
+  width: 3.33rem;
+  height: 0.4rem;
+  left: 3.33rem;
+  margin-top: 0.45rem;
+  float: left;
+  position: absolute;
+  z-index: 10;
+}
+
+.ul li{
+  width: 3.33rem;
+  height: 0.4rem;
+  background: white;
+  border: 1px solid black;
+  z-index: 10;
+}
+
+.active{
+  color: #FF9900;
+}
+
+.content {
+  width: 10rem;
+  background: white;
+  float: left;
+  z-index: 1;
+}
+
+.section {
+  width: 10rem;
+  min-height: 1.718rem;
+  border: 0.01rem solid gray;
+  float: left;
+}
+
+.section .title{
+  font-size: 0.2rem;
+  text-align: center;
+}
+
+.section .subtitle{
+  font-size: 0.1rem;
+  text-align: center;
+}
+
+.section .catname{
+  font-size: 0.1rem;
+
+}
+
+.section a{
+  color: black;
+}
+
+.section a:hover{
+  color: orange;
+}
+
+.section pre{
+  font-size: 0.15rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.2rem;
+  margin-left: 3.8rem;
+  white-space:pre-wrap;
+}
+
+.more {
+  width: 10rem;
+  height: 0.8rem;
+  text-align: center;
+  float: left;
+}
+
+.more button{
+  width: 10rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  display: block;
+  font-size: 0.2rem;
+  color: black;
+  float: left;
+}
+
+.article {
+  width: 10rem;
+  min-height: 3rem;
+  border: 0.01rem solid gray;
+}
+
+.article h5{
+  font-size: 0.2rem;
+  text-align: center;
+}
+
+.article h6{
+  font-size: 0.1rem;
+  text-align: center;
+}
+
+.article pre{
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  margin-left: 3.8rem;
+  white-space:pre-wrap;
+}
+
+.footer {
+  width: 100%;
+  height: 0.5rem;
+  color: white;
+  background: black;
+  line-height: 0.5rem;
+  font-size: 0.2rem;
+  text-align: center;
+  float: left;
+}
+
+.comment {
+  width: 100%;
+  background: #CCCCFF;
+}
+
+.login {
+  width: 10rem;
+  line-height: 1rem;
+  font-size: 0.2rem;
+}
+
+.login p{
+  margin-left: 3rem;
+}
+
+.login input{
+  width: 3rem;
+  height: 0.5rem;
+  vertical-align:middle;
+}
+
+.login #submit{
+  width: 3.65rem;
+}
+
+.login h4{
+  font-size: 0.5rem;
+  text-align: center;
+}
+
+.login canvas{
+  width: 2rem;
+  height: 0.5rem;
+  vertical-align:middle;
+}
+
+.backend {
+  width: 10rem;
+  height:  0.45rem;
+  background: black;
+  float: left;
+}
+
+.backend .name{
+  width: 2.5rem;
+  height:  0.45rem;
+  line-height: 0.45rem;
+  font-size: 0.3rem;
+  text-align: center;
+  color: white;
+  background: #FF9900;
+  float: left;
+}
+
+.backend .logout{
+  width: 7.5rem;
+  height: 0.45rem;
+  color: white;
+  background: #4D4D4D;
+  float: left;
+}
+
+.backend p{
+  color: white;
+  line-height: 0.45rem;
+  font-size: 0.2rem;
+  float: right;
+}
+
+.backend a{
+  width: 1rem;
+  height: 0.45rem;
+  color: white;
+  background: red;
+  text-align: center;
+  line-height: 0.45rem;
+  font-size: 0.2rem;
+  float: right;
+}
+
+.aside {
+  width: 2.5rem;
+  height: 10rem;
+  background: #4D4D4D;
+  float: left;
+}
+
+.aside nav{
+  width: 2.5rem;
+  height: 10rem;
+  background: #4D4D4D;
+  float: left;
+}
+
+.aside a{
+  width: 2.5rem;
+  height: 0.45rem;
+  line-height: 0.45rem;
+  display: block;
+  color: white;
+  font-size: 0.2rem;
+  text-align: center;
+  float: left;
+}
+
+.aside a:hover{
+  background: black;
+}
+
+.edit {
+  width: 7.5rem;
+  height: 10rem;
+  text-align: center;
+  float: left;
+}
+
+.edit form{
+  width: 7rem;
+  height: 8rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.edit p{
+  width: 4rem;
+  height: 0.5rem;
+  text-align: right;
+  font-size: 0.2rem;
+}
+
+.edit input{
+  width: 2rem;
+  height: 0.3rem;
+  font-size: 0.2rem;
+}
+
+.edit .submit{
+  width: 2rem;
+  height: 0.3rem;
+  font-size: 0.2rem;
+}
+
+.edit textarea{
+  width: 6rem;
+  height: 4rem;
+  font-size: 0.2rem;
+}
+
+.edit select{
+  width: 2rem;
+}
+
+.table {
+  width: 100%;
+  font-size: 0.2rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .section pre{
+    font-size: 0.4rem;
+    margin-left: 0.3rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.2rem;
+    white-space:pre-wrap;
+  }
+
+  .article pre{
+    font-size: 0.4rem;
+    margin-left: 0.3rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    white-space:pre-wrap;
+  }
+}

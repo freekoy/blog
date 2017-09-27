@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/base.css'>
+    <link rel="stylesheet" href="/stylesheets/weblog.css">
+  </head>
+  <body>
+    <header class="header" id="top">
+      <img src="/images/my.jpg" alt="">
+      <p>追求卓越,不止于代码</p>
+    </header>
+    <nav class="nav">
+      <ul>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);"  onclick="dis()">分类</a>
+          <ul class="ul">
+            <% for(let i = 0;i < cats.length;i++) { %>
+            <li><a href="/catname/<%= cats[i]['cat_name'] %>"><%= cats[i]['cat_name'] %></a></li>
+            <% } %>
+          </ul>
+        </li>
+        <li><a href="/aboutme">关于我</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+        <section class="section">
+          <p class="title">关于我</p>
+          <pre><%= content %></pre>
+        </section>
+    </div>
+    <footer class="footer">
+      <p>&copy 2017 freekoy</p>
+    </footer>
+  </body>
+  <script src="/javascripts/fixsimple.js"></script>
+  <script>
+  let ul = document.getElementsByClassName('ul')[0];
+  ul.style.display = 'none';
+  let state = 1;
+  function dis() {
+    if(state > 0) {
+      ul.style.display = 'block';
+    }else if(state < 0) {
+      ul.style.display = 'none';
+    }
+    state = -state;
+  }
+  </script>
+</html>
